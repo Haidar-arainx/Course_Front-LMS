@@ -1,0 +1,9 @@
+.smedia-icon-wrapper{
+ display: flex;
+ justify-content: space-between;
+ width: 150px;
+}
+
+.smedia-icon-wrapper .smedia-icon {
+    color: #12a04a;
+  }

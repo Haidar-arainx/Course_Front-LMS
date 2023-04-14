@@ -1,0 +1,172 @@
+.list-thumbnail {
+  border-radius: 0.1rem;
+  padding: 0;
+  border: initial;
+  height: auto;
+  max-width: unset;
+  height: 85px;
+  object-fit: cover;
+  width: unset;
+}
+.separator {
+  border-bottom: 1px solid #d7d7d7;
+}
+.min-width-zero {
+  min-width: 0;
+}
+.text-small {
+  font-size: 0.76rem !important;
+  line-height: 0.9rem !important;
+}
+.list-item-heading {
+  font-size: 1rem;
+}
+.chat-app .scrollbar-container {
+  padding-left: 10px;
+  margin-left: -10px;
+  padding-right: 10px;
+  margin-right: 0;
+  height: calc(100vh - 370px);
+}
+.player-wrapper {
+  position: relative;
+  padding-top: 56.25%;
+  // background-image: url("../Assets/image/Home Page/Dhikr Fikr Islamic Institute of UK.webp");
+  background-size: cover;
+  .react-player {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+.lecture__image {
+  width: 100%;
+  height: 400px;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+.subject_name {
+  position: relative;
+  display: flex;
+  justify-content: left;
+  padding: 0 15px 15px;
+  // border-left: 1px dashed #000;
+  color: #0f9645;
+  font-weight: 600;
+  i {
+    font-size: 22px;
+    margin-right: 5px;
+  }
+  // &:after{
+  //   content:"";
+  //   position:absolute;
+  //   width:10px;
+  //   height:10px;
+  //   border-radius:50%;
+  //   background: #0f9645;
+  //   left: -5px;
+
+  // }
+}
+.subject_detail {
+  position: relative;
+}
+.module_name {
+  display: flex;
+  justify-content: left;
+  padding: 0 15px 15px;
+
+  font-weight: 600;
+  i {
+    font-size: 22px;
+    margin-right: 5px;
+  }
+}
+.module_detail {
+  position: relative;
+
+  margin-left: 20px;
+}
+
+.accordion-button.collapsed::after {
+  content: "\f078";
+  font-family: "FontAwesome";
+  color: #fff;
+  font-weight: 400;
+  background-image: none;
+}
+.accordion-button:not(.collapsed)::after {
+  content: "\f078";
+  font-family: "FontAwesome";
+  color: #fff;
+  font-weight: 400;
+  background-image: none !important;
+  transform: rotate(180deg) !important;
+}
+.subject_acordian {
+  background-color: #0f9645;
+  color: #fff;
+  .accordion-button.collapsed::after {
+    content: '\f078';
+    font-family: 'FontAwesome';
+    margin-left: 0 !important;
+    color: #fff;
+    margin-bottom: 5px !important;
+    font-weight: 400;
+    background-image: none;
+    transform: rotate(270deg) !important;
+  }
+  .accordion-button:not(.collapsed)::after {
+    content: '\f078';
+    font-family: 'FontAwesome';
+    margin-left: 0 !important;
+    color: #fff;
+    font-weight: 400;
+    background-image: none !important;
+    transform: rotate(180deg) !important;
+    margin-bottom: 5px !important;
+  }
+  .accordion-button {
+    background-color: transparent !important ;
+    box-shadow: none !important ;
+    cursor: pointer;
+  }
+}
+.module_acordian {
+  background-color: #C9C9C9;
+  color: #fff;
+  .accordion-button.collapsed::after {
+    content: '\f078';
+    font-family: 'FontAwesome';
+    margin-left: 0 !important;
+    color: #fff;
+    margin-bottom: 5px !important;
+    font-weight: 400;
+    background-image: none;
+    transform: rotate(270deg) !important;
+    color: #000 !important;
+  }
+  .accordion-button:not(.collapsed)::after {
+    content: '\f078';
+    font-family: 'FontAwesome';
+    margin-left: 0 !important;
+    color: #fff;
+    font-weight: 400;
+    background-image: none !important;
+    transform: rotate(180deg) !important;
+    margin-bottom: 15px !important;
+    color: #000 !important;
+  }
+  .accordion-button {
+    background-color: transparent !important ;
+    box-shadow: none !important ;
+    color: #000;
+    cursor: pointer;
+  }
+}
+.separator {
+  border-bottom: 1px solid #a3a1a1;
+}
