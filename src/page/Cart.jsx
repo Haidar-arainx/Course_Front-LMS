@@ -9,6 +9,8 @@ import Coupon from "../component/section/Coupon";
 import { IMAGE_BASE_URL } from "../services/base_url";
 import { GetRequestApi } from "../services/ApiRequests";
 import { NotificationManager } from "react-notifications";
+import { Link } from "react-router-dom";
+import { Button } from "reactstrap";
 const Cart = () => {
   const storeData = useSelector((state) => state.cart);
   const dispach = useDispatch();
@@ -105,9 +107,14 @@ const Cart = () => {
             ) : (
               <h1 className="text-center">No Items In The Cart</h1>
             )}
-            <Coupon />
+            <div className="text-end">
+            <Link to="/checkout">
+              <button className="btn btn-success">Proceed to Checkout</button>
+            </Link>
+            </div>
+            {/* <Coupon />
 
-            <Checkout removeFromCart={removeFromCart} />
+            <Checkout removeFromCart={removeFromCart} /> */}
           </div>
         </div>
       </div>

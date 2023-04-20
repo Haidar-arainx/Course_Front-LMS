@@ -1,5 +1,5 @@
 //dev
-// export const base_url = "https://admin.dhikrfikr.com/public/api";
+// export const COURSE_URL = "https://coursedev.dhikrfikr.com/public/api";
 
 // client
 export const base_url = 'https://courseappbackend.dhikrfikr.com/public/api';

@@ -1,6 +1,5 @@
 import React from "react";
 
-
 import { PostRequestApi } from "../../services/ApiRequests";
 
 import { useDispatch, useSelector } from "react-redux";
@@ -22,6 +21,7 @@ import {
 
 import { useSearchParams } from "react-router-dom";
 import ConfirmPayment from "../../paymentmthod/ConfirmPayment";
+import StripeChek from "../paumentmethod/StripeChek";
 
 const PaymentFoorm = ({
   name,
@@ -48,7 +48,6 @@ const PaymentFoorm = ({
   const publishableKey = process.env.REACT_APP_API_KEY;
   const stripePromise = loadStripe(publishableKey);
 
-
   const handleToken = async (token) => {
     PostRequestApi("checkout", {
       course_id: storeData[0]?.course_id,
@@ -74,23 +73,6 @@ const PaymentFoorm = ({
       }
     });
 
-    // PostRequestApi("enroll-iap", {
-    //   id: storeData[0]?.course_id,
-    //   response: token,
-    // }).then((res) => {
-    //   if (res.data.success == true) {
-    //     NotificationManager.success(
-    //       res?.data?.message,
-    //       "Course!",
-    //       3000,
-    //       null,
-    //       null,
-    //       ""
-    //     );
-    //     // dispatch(GetCart());
-    //     // navigate('/')
-    //   }
-    // });
   };
 
   useEffect(() => {
@@ -172,94 +154,10 @@ const PaymentFoorm = ({
           </div>
         </div>
       )}
+      <div className="payment_method_wrapper">
+      <StripeChek />
+      </div>
 
-      {/* <PaymentForm
-              applicationId="sandbox-sq0idb-tBv9J7IS7gx7w_EcJfcT4g"
-              cardTokenizeResponseReceived={async (token, buyer) => {
-                setloading(true);
-                axios
-                  .post(
-                    "https://ivy.premiumblindsuk.com/api/sendsquarepayment",
-                    {
-                      source_id: token.token,
-                      payment: total,
-                    }
-                  )
-                  .then((res) => {
-                    if (res.status === 200) {
-                      PostRequestApi("payment_store", {
-                        course_id: course_id,
-                        invoice_total: total,
-                        status: "success",
-                        user_id: user?.id
-                      }).then((response) => {
-                        if (response.data.status === true) {
-                          NotificationManager.success(
-                            `${response.data.message}`,
-                            "Success!",
-                            3000,
-                            null,
-                            null,
-                            ""
-                          );
-                        }
-                      });
-                      postRequestFunc("course_enroll", {
-                        user_id: user_id,
-                        course_id: course_id,
-                      }).then((response) => {
-                        if (response.data.status === true) {
-                          setloading(false);
-                          dispatch(CartEmpty());
-                          navigate("/");
-                          NotificationManager.success(
-                            `${response.data.message}`,
-                            "Success!",
-                            3000,
-                            null,
-                            null,
-                            ""
-                          );
-                        }
-                      });
-                    }
-                  });
-
-                // postRequestFunc('payment_store ',)
-                // Payment(token.token, totalPrice).then((res) => {
-                //   if (res.status === 200) {
-                //     handleSubmit();
-                //   }
-                // });
-
-                // alert(JSON.stringify(token, null, 2));
-                console.info({ token, buyer });
-              }}
-              createVerificationDetails={() => ({
-                amount: ` ${total}`,
-
-                billingContact: {
-                  familyName: `${name}`,
-                  givenName: `${name}`,
-                  countryCode: `${s_country}`,
-                  city: `${City}`,
-                  addressLines: [`${address}`],
-                },
-                currencyCode: "GBP",
-                intent: "CHARGE",
-              })}
-              locationId="LPBNTGDZZYB3M"
-            >
-              <CreditCard text={"Pay now"} />
-            </PaymentForm>
-            <div className="square-pay mt-4">
-              <div className="square_text">
-                <LockIcon />
-                <span>
-                  Secure Checkout - Shopping with us is always safe and secure
-                </span>
-              </div>
-            </div> */}
     </>
   );
 };

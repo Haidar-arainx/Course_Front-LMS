@@ -8,7 +8,7 @@ import { PostRequestApi, postRequestFunc } from "../../services/ApiRequests";
 import { CartEmpty, GetCart } from "../../redux/actions";
 import { NotificationManager } from "react-notifications";
 
-const Checkout = ({removeFromCart}) => {
+const Checkout = () => {
   const [tax, setTax] = useState(0);
   const storeData = useSelector((state) => state.cart);
   const Settings = useSelector((state) => state.settinglist);

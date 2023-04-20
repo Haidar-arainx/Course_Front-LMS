@@ -1,9 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "swiper/css";
-// import '../src/assets/css/style1.css'
-// import '../src/assets/sass/style.css'
-// import "./assets/sass/style.css"
-// import "./assets/sass/style.css"
 import "./assets/sass/style.css";
 
 import ScrollToTop from "./component/layout/ScrollToTop";
@@ -47,13 +43,14 @@ import {
 } from "./redux/actions";
 import { user } from "./services/defaultValues";
 import { Helmet } from "react-helmet";
+import BankVerify from "./page/BankVerify";
 
 const Home = React.lazy(() => import("./page/home"));
 const Quiz = React.lazy(() => import("./page/Quiz"));
 const AllQuiz = React.lazy(() => import("./page/AllQuiz"));
 const CoursePage = React.lazy(() => import("./page/course"));
 const VerifySignup = React.lazy(() => import("./page/VerifySignup"));
-// const Success = React.lazy(() => import("./page/success"));
+const Payment = React.lazy(() => import("./page/Payment"));
 
 function App() {
   const [title, setTitle] = useState("");
@@ -66,7 +63,7 @@ function App() {
     }
     dispatch(GetCategoriesAction());
     dispatch(GetGeneralAction());
-  
+
     dispatch(GetContent());
   }, []);
   const Settings = useSelector((state) => state.settinglist);
@@ -121,13 +118,14 @@ function App() {
           <Route path="contact" element={<ContactPage />} />
           <Route path="login" element={<LoginPage />} />
           <Route path="/instructor-signup" element={<Instructorsign_up />} />
-          {/* <Route path="/payments-success" element={<Success />} /> */}
+          <Route path="/verify" element={<BankVerify />} />
           <Route path="signup" element={<SignupPage />} />
-          
-           <Route path="/verifysignup" element={<VerifySignup />} />
+
+          <Route path="/verifysignup" element={<VerifySignup />} />
           <Route path="forgetpass" element={<ForgetPass />} />
 
-          <Route path="/checkout" element={<CheckoutPay />} />
+          <Route path="checkout" element={<CheckoutPay />} />
+          <Route path="payment" element={<Payment />} />
 
           <Route path="*" element={<ErrorPage />} />
         </Routes>
