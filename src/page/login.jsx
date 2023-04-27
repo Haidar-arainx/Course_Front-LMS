@@ -104,7 +104,7 @@ const LoginPage = () => {
                     />
                     <label htmlFor="remember">Remember Me</label>
                   </div>
-                  <Link to="/forgetpass">Forget Password?</Link>
+                  {/* <Link to="/forgetpass">Forget Password?</Link> */}
                 </div>
               </div>
               <div className="form-group text-center">

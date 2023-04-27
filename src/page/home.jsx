@@ -3,6 +3,7 @@ import { Component, Fragment, useEffect } from "react";
 import { useSelector } from "react-redux";
 import Footer from "../component/layout/footer";
 import Header from "../component/layout/header";
+import Loader from "../component/layout/Loader";
 import About from "../component/section/about";
 import Achievement from "../component/section/achievement";
 import Banner from "../component/section/banner";

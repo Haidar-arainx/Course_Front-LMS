@@ -2,35 +2,16 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "swiper/css";
 import "./assets/sass/style.css";
 
+import "./component/user-dashboard/css/skin_color.css";
+import "./component/user-dashboard/css/style.css";
 import ScrollToTop from "./component/layout/ScrollToTop";
-import ErrorPage from "./page/404";
-import AboutPage from "./page/about";
-import BlogPage from "./page/blog";
-import BlogPageTwo from "./page/blog-2";
-import BlogPageThree from "./page/blog-3";
-import BlogSingle from "./page/blog-single";
-import CartPage from "./page/cart-page";
-import ContactPage from "./page/contact";
-
-import CourseSingle from "./page/course-single";
 
 import ForgetPass from "./page/forgetpass";
 
-import UserDashboard from "./page/UserDashboard";
-import InstructorPage from "./page/instructor";
-import LoginPage from "./page/login";
-import SearchNone from "./page/search-none";
-import SearchPage from "./page/search-page";
-import ShopPage from "./page/shop";
-import ShopDetails from "./page/shop-single";
 import Instructorsign_up from "./page/Instructorsign_up";
-import TeamPage from "./page/team";
-import TeamSingle from "./page/team-single";
 
-import SignupPage from "./page/signup";
 import NotificationContainer from "react-notifications/lib/NotificationContainer";
-import Cart from "./page/Cart";
-import CheckoutPay from "./page/CheckoutPay";
+
 import { useDispatch, useSelector } from "react-redux";
 import React, { Suspense, useEffect, useState } from "react";
 import {
@@ -43,7 +24,6 @@ import {
 } from "./redux/actions";
 import { user } from "./services/defaultValues";
 import { Helmet } from "react-helmet";
-import BankVerify from "./page/BankVerify";
 
 const Home = React.lazy(() => import("./page/home"));
 const Quiz = React.lazy(() => import("./page/Quiz"));
@@ -51,6 +31,20 @@ const AllQuiz = React.lazy(() => import("./page/AllQuiz"));
 const CoursePage = React.lazy(() => import("./page/course"));
 const VerifySignup = React.lazy(() => import("./page/VerifySignup"));
 const Payment = React.lazy(() => import("./page/Payment"));
+const BankVerify = React.lazy(() => import("./page/BankVerify"));
+const ErrorPage = React.lazy(() => import("./page/404"));
+const AboutPage = React.lazy(() => import("./page/about"));
+const BlogPage = React.lazy(() => import("./page/blog"));
+const BlogSingle = React.lazy(() => import("./page/blog-single"));
+const Cart = React.lazy(() => import("./page/Cart"));
+const ContactPage = React.lazy(() => import("./page/contact"));
+const CourseSingle = React.lazy(() => import("./page/course-single"));
+const UserDashboard = React.lazy(() => import("./page/UserDashboard"));
+const InstructorPage = React.lazy(() => import("./page/instructor"));
+const SignupPage = React.lazy(() => import("./page/signup"));
+const LoginPage = React.lazy(() => import("./page/login"));
+const CheckoutPay = React.lazy(() => import("./page/CheckoutPay"));
+const Invoice = React.lazy(() => import("./page/Invoice"));
 
 function App() {
   const [title, setTitle] = useState("");
@@ -92,7 +86,7 @@ function App() {
         <title>{title}</title>
         {/* <meta name="description" content="Helmet application" /> */}
       </Helmet>
-      <Suspense fallback={<div className="loading">Loading</div>}>
+      <Suspense fallback={<div className="loading" />}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="user-dashboard" element={<UserDashboard />} />
@@ -103,29 +97,19 @@ function App() {
           <Route path="course-single/:id" element={<CourseSingle />} />
           <Route path="cart" element={<Cart />} />
           <Route path="blog" element={<BlogPage />} />
-          <Route path="blog-2" element={<BlogPageTwo />} />
-          <Route path="blog-3" element={<BlogPageThree />} />
           <Route path="blog-single/:id" element={<BlogSingle />} />
           <Route path="about" element={<AboutPage />} />
-          <Route path="team" element={<TeamPage />} />
-          <Route path="team-single" element={<TeamSingle />} />
           <Route path="instructor" element={<InstructorPage />} />
-          <Route path="shop" element={<ShopPage />} />
-          <Route path="shop-single" element={<ShopDetails />} />
-          <Route path="cart-page" element={<CartPage />} />
-          <Route path="search-page" element={<SearchPage />} />
-          <Route path="search-none" element={<SearchNone />} />
           <Route path="contact" element={<ContactPage />} />
           <Route path="login" element={<LoginPage />} />
           <Route path="/instructor-signup" element={<Instructorsign_up />} />
           <Route path="/verify" element={<BankVerify />} />
           <Route path="signup" element={<SignupPage />} />
-
           <Route path="/verifysignup" element={<VerifySignup />} />
           <Route path="forgetpass" element={<ForgetPass />} />
-
           <Route path="checkout" element={<CheckoutPay />} />
           <Route path="payment" element={<Payment />} />
+          <Route path="/invoice/:id" element={<Invoice />} />
 
           <Route path="*" element={<ErrorPage />} />
         </Routes>

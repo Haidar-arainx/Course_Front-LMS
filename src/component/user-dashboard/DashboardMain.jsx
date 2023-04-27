@@ -1,14 +1,8 @@
 import React from "react";
-import "../../assets/css/dashboard.css";
-import "./css/skin_color.css";
-import "./css/style.css";
+
 import courseImg from "../../assets/images/banner/01.png";
 import bgImg from "../../assets/images/author/bgimg.jpg";
-import {
-  GetCoursesAction,
-  GetPaymentAction,
-  LogoutAction,
-} from "../../redux/actions";
+import { LogoutAction } from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { user } from "../../services/defaultValues";
 import ProfileUpdate from "./ProfileUpdate";

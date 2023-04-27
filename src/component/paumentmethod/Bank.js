@@ -10,14 +10,15 @@ import { useNavigate } from "react-router-dom";
 const Bank = ({ subtotal }) => {
   const [lgShow, setLgShow] = useState(false);
   const [formDataState, setFormDataState] = useState({});
-
+  const storeData = useSelector((state) => state.cart);
   const navigat = useNavigate();
   const onToken = () => {
     const formData = new FormData();
     formData.append("bank_name", formDataState?.bank_name);
     formData.append("account_holder", formDataState?.account_holder);
     formData.append("reference_number", formDataState?.reference_number);
-    formData.append("deposit_amount", formDataState?.deposit_amount);
+    formData.append("deposit_amount", subtotal);
+    formData.append("tracking_id", storeData[0].tracking);
     formData.append("image", formDataState?.image);
 
     PostRequestApi("add_bank_payment", formData).then((res) => {
@@ -30,7 +31,8 @@ const Bank = ({ subtotal }) => {
           null,
           ""
         );
-        navigat("/verify");
+        window.location.href = `/verify?tracking_id=${storeData[0].tracking}&ref_number=${formDataState?.reference_number}&amount=${subtotal}&ac_holder=${formDataState?.account_holder}&bank_name=${formDataState?.bank_name}`;
+        // navigat("/verify");
       }
     });
   };
@@ -108,8 +110,9 @@ const Bank = ({ subtotal }) => {
                   type="number"
                   class="form-control"
                   name="deposit_amount"
-                  value={formDataState?.deposit_amount}
-                  onChange={handleForm}
+                  value={subtotal}
+                  disabled
+                  //   onChange={handleForm}
                 />
               </div>
               <div class="col-xl-12 ">

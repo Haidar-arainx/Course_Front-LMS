@@ -71,7 +71,7 @@ const Payment = () => {
                     subtotal={detaitl?.purchase_price}
                   />
                   <Wallet subtotal={detaitl?.purchase_price} />
-                  <Bank subtotal={detaitl?.purchase_price} />
+                  {/* <Bank subtotal={detaitl?.purchase_price} /> */}
                 </div>
               </div>
             </div>
@@ -80,7 +80,7 @@ const Payment = () => {
                 class="cart-course-wrapper box-shadow-5 my-3"
                 style={{ flexDirection: "column" }}
               >
-                <h3 className="my-3">Your order</h3>
+                <h1 className="my-3">Your order</h1>
                 {storeData &&
                   storeData.map((list) => {
                     return (

@@ -5,6 +5,10 @@
         @extend %hidden;
     }
 }
+input[type=radio]{
+    width: auto;
+    margin-right: 10px;
+} 
 
 // category-section
 .category-section {

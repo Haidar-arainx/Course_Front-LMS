@@ -1,5 +1,18 @@
 // Header Section Start here
-
+.loading {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border: 2px solid rgba($theme-color, 0.2);
+  border-radius: 50%;
+  border-top-color: $theme-color;
+  animation: spin 1s ease-in-out infinite;
+  -webkit-animation: spin 1s ease-in-out infinite;
+  left: calc(50% - 15px);
+  top: calc(50% - 15px);
+  position: fixed;
+  z-index: 1;
+}
 a {
   text-decoration: none !important;
 }
